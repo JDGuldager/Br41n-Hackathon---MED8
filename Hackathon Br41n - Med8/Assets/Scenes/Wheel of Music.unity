@@ -2251,7 +2251,19 @@ MonoBehaviour:
       m_Calls: []
   onToggle:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1121734942}
+        m_TargetAssemblyTypeName: CDSelectionManager, Assembly-CSharp
+        m_MethodName: ToggleCurrentCD
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1533684017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
