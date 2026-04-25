@@ -28,6 +28,17 @@ def bandpass_window(x, fs, lowcut, highcut):
     return filtfilt(b, a, x, axis=-1)
 
 
+def bandpower_avg(buffer, fs, lowcut, highcut):
+    """
+    buffer shape: channels x samples
+    returns average power across all channels
+    """
+    X = buffer[np.newaxis, :, :]
+    Xf = bandpass_window(X, fs, lowcut, highcut)[0]
+    power_per_channel = np.mean(Xf ** 2, axis=1)
+    return float(np.mean(power_per_channel))
+
+
 def get_lsl_inlet():
     print("Looking for Unicorn Data LSL stream...")
     streams = resolve_byprop("type", "Data", timeout=10)
@@ -52,9 +63,6 @@ def send_udp(udp, msg):
 def compute_jaw_score(buffer, jaw_samples):
     recent = buffer[:, -jaw_samples:]
     diff = np.diff(recent, axis=1)
-
-    # Jaw/face EMG creates sharp broadband changes.
-    # Mean absolute sample-to-sample change is a simple artifact detector.
     return float(np.mean(np.abs(diff)))
 
 
@@ -89,6 +97,9 @@ def main():
     print("MOVE:0  = idle")
     print("MOVE:1  = right")
     print("TOGGLE  = switch mode")
+    print()
+    print("Also sending:")
+    print("CONF, ALPHA, BETA, GAMMA")
     print()
     print("Stay relaxed for the first few seconds for jaw baseline.")
     print("Do NOT squeeze your jaw during baseline calibration.")
@@ -132,7 +143,6 @@ def main():
                 jaw_baseline = float(np.median(baseline_array))
                 jaw_mad = float(np.median(np.abs(baseline_array - jaw_baseline)))
 
-                # Avoid zero or near-zero MAD
                 if jaw_mad < 1e-9:
                     jaw_mad = max(jaw_baseline * 0.1, 1e-9)
 
@@ -164,6 +174,13 @@ def main():
             continue
 
         # -------------------------
+        # Alpha / Beta / Gamma values
+        # -------------------------
+        alpha_avg = bandpower_avg(buffer, fs, 8.0, 12.0)
+        beta_avg = bandpower_avg(buffer, fs, 13.0, 30.0)
+        gamma_avg = bandpower_avg(buffer, fs, 30.0, 45.0)
+
+        # -------------------------
         # Motor imagery prediction
         # -------------------------
         X = buffer[np.newaxis, :, :]
@@ -178,12 +195,21 @@ def main():
         else:
             cmd = -1 if pred == 0 else 1
 
-        send_udp(udp, f"MOVE:{cmd}")
+        message = (
+            f"MOVE:{cmd};"
+            f"CONF:{conf:.3f};"
+            f"ALPHA:{alpha_avg:.6f};"
+            f"BETA:{beta_avg:.6f};"
+            f"GAMMA:{gamma_avg:.6f}"
+        )
+
+        send_udp(udp, message)
 
         label = "LEFT" if pred == 0 else "RIGHT"
 
         print(
             f"pred={label}, conf={conf:.2f}, cmd={cmd}, "
+            f"alpha={alpha_avg:.6f}, beta={beta_avg:.6f}, gamma={gamma_avg:.6f}, "
             f"jaw={jaw_score:.6f}/{jaw_threshold:.6f}"
         )
 

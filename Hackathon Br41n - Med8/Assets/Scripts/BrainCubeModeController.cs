@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -19,6 +20,19 @@ public class BrainCubeModeController : MonoBehaviour
     [Header("Mode")]
     public BrainMode currentMode = BrainMode.MoveLeftRight;
 
+    [Header("Brain Values")]
+    public float brainConfidence = 0f;
+    public float alphaAverage = 0f;
+    public float betaAverage = 0f;
+    public float gammaAverage = 0f;
+
+    [Header("Smoothed Brain Values")]
+    public float smoothedConfidence = 0f;
+    public float smoothedAlpha = 0f;
+    public float smoothedBeta = 0f;
+    public float smoothedGamma = 0f;
+    public float brainValueSmoothSpeed = 5f;
+
     [Header("Movement")]
     public float moveSpeed = 3f;
     public float moveSmoothSpeed = 6f;
@@ -32,6 +46,13 @@ public class BrainCubeModeController : MonoBehaviour
     public float maxY = 5f;
     public float scaleIncreaseSpeed = 2f;
     public float scaleDecaySpeed = 1f;
+
+    [Header("Scale Mode Signal")]
+    public bool scaleWithConfidence = true;
+    public bool scaleWithAlpha = false;
+    public bool scaleWithBeta = false;
+    public bool scaleWithGamma = false;
+    public float scaleSignalMultiplier = 1f;
 
     private Socket socket;
     private Thread thread;
@@ -61,7 +82,7 @@ public class BrainCubeModeController : MonoBehaviour
 
     void ReceiveLoop()
     {
-        byte[] buffer = new byte[256];
+        byte[] buffer = new byte[512];
 
         while (running)
         {
@@ -92,12 +113,45 @@ public class BrainCubeModeController : MonoBehaviour
             return;
         }
 
-        if (msg.StartsWith("MOVE:"))
-        {
-            string value = msg.Substring(5);
+        string[] parts = msg.Split(';');
 
-            if (float.TryParse(value, out float dir))
-                targetDirection = Mathf.Clamp(dir, -1f, 1f);
+        foreach (string part in parts)
+        {
+            if (part.StartsWith("MOVE:"))
+            {
+                string value = part.Substring(5);
+
+                if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float dir))
+                    targetDirection = Mathf.Clamp(dir, -1f, 1f);
+            }
+            else if (part.StartsWith("CONF:"))
+            {
+                string value = part.Substring(5);
+
+                if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float conf))
+                    brainConfidence = Mathf.Clamp01(conf);
+            }
+            else if (part.StartsWith("ALPHA:"))
+            {
+                string value = part.Substring(6);
+
+                if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float alpha))
+                    alphaAverage = alpha;
+            }
+            else if (part.StartsWith("BETA:"))
+            {
+                string value = part.Substring(5);
+
+                if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float beta))
+                    betaAverage = beta;
+            }
+            else if (part.StartsWith("GAMMA:"))
+            {
+                string value = part.Substring(6);
+
+                if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float gamma))
+                    gammaAverage = gamma;
+            }
         }
     }
 
@@ -118,6 +172,8 @@ public class BrainCubeModeController : MonoBehaviour
 
     void Update()
     {
+        SmoothBrainValues();
+
         if (currentMode == BrainMode.MoveLeftRight)
         {
             UpdateMovementMode();
@@ -126,6 +182,33 @@ public class BrainCubeModeController : MonoBehaviour
         {
             UpdateScaleMode();
         }
+    }
+
+    void SmoothBrainValues()
+    {
+        smoothedConfidence = Mathf.Lerp(
+            smoothedConfidence,
+            brainConfidence,
+            Time.deltaTime * brainValueSmoothSpeed
+        );
+
+        smoothedAlpha = Mathf.Lerp(
+            smoothedAlpha,
+            alphaAverage,
+            Time.deltaTime * brainValueSmoothSpeed
+        );
+
+        smoothedBeta = Mathf.Lerp(
+            smoothedBeta,
+            betaAverage,
+            Time.deltaTime * brainValueSmoothSpeed
+        );
+
+        smoothedGamma = Mathf.Lerp(
+            smoothedGamma,
+            gammaAverage,
+            Time.deltaTime * brainValueSmoothSpeed
+        );
     }
 
     void UpdateMovementMode()
@@ -141,21 +224,38 @@ public class BrainCubeModeController : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         transform.position = pos;
 
-        // Slowly return scale to normal while moving
         currentYScale = Mathf.Lerp(currentYScale, 1f, Time.deltaTime * scaleDecaySpeed);
         transform.localScale = new Vector3(1f, currentYScale, 1f);
     }
 
     void UpdateScaleMode()
     {
-        // Stop horizontal movement
         smoothedDirection = Mathf.Lerp(smoothedDirection, 0f, Time.deltaTime * moveSmoothSpeed);
 
-        // While in scale mode, increase Y size
-        currentYScale += scaleIncreaseSpeed * Time.deltaTime;
+        float signal = GetSelectedScaleSignal();
+        float boost = Mathf.Max(0f, signal * scaleSignalMultiplier);
+
+        currentYScale += scaleIncreaseSpeed * boost * Time.deltaTime;
         currentYScale = Mathf.Clamp(currentYScale, minY, maxY);
 
         transform.localScale = new Vector3(1f, currentYScale, 1f);
+    }
+
+    float GetSelectedScaleSignal()
+    {
+        if (scaleWithAlpha)
+            return smoothedAlpha;
+
+        if (scaleWithBeta)
+            return smoothedBeta;
+
+        if (scaleWithGamma)
+            return smoothedGamma;
+
+        if (scaleWithConfidence)
+            return smoothedConfidence;
+
+        return smoothedConfidence;
     }
 
     void OnDestroy()
