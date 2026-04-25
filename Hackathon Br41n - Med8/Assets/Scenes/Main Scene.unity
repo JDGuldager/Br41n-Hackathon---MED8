@@ -589,6 +589,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BrainCubeModeController
   port: 12346
   currentMode: 0
+  brainConfidence: 0
+  alphaAverage: 0
+  betaAverage: 0
+  gammaAverage: 0
+  smoothedConfidence: 0
+  smoothedAlpha: 0
+  smoothedBeta: 0
+  smoothedGamma: 0
+  brainValueSmoothSpeed: 5
   moveSpeed: 3
   moveSmoothSpeed: 6
   minX: -5
@@ -597,6 +606,11 @@ MonoBehaviour:
   maxY: 5
   scaleIncreaseSpeed: 2
   scaleDecaySpeed: 1
+  scaleWithConfidence: 0
+  scaleWithAlpha: 1
+  scaleWithBeta: 0
+  scaleWithGamma: 0
+  scaleSignalMultiplier: 1
 --- !u!1 &1815646546
 GameObject:
   m_ObjectHideFlags: 0

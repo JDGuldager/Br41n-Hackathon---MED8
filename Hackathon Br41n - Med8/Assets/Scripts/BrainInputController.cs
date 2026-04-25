@@ -1,26 +1,28 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class BrainCubeModeController : MonoBehaviour
+public class BrainInputController : MonoBehaviour
 {
-    public enum BrainMode
+    public enum BrainDirection
     {
-        MoveLeftRight,
-        ScaleY
+        None = 0,
+        Left = -1,
+        Right = 1
     }
 
     [Header("UDP")]
     public int port = 12346;
 
-   
-
-    [Header("Mode")]
-    public BrainMode currentMode = BrainMode.MoveLeftRight;
+    [Header("Voting")]
+    public float voteWindowSeconds = 2f;
+    public bool ignoreIdleVotes = true;
 
     [Header("Brain Values")]
     public float brainConfidence = 0f;
@@ -35,42 +37,30 @@ public class BrainCubeModeController : MonoBehaviour
     public float smoothedGamma = 0f;
     public float brainValueSmoothSpeed = 5f;
 
-    [Header("Movement")]
-    public float moveSpeed = 3f;
-    public float moveSmoothSpeed = 6f;
+    [Header("Debug")]
+    public BrainDirection latestRawDirection = BrainDirection.None;
+    public BrainDirection lastChosenDirection = BrainDirection.None;
+    public int leftVotes = 0;
+    public int rightVotes = 0;
+    public int idleVotes = 0;
 
-    [Header("Movement Limits")]
-    public float minX = -5f;
-    public float maxX = 5f;
-
-    [Header("Y Scaling")]
-    public float minY = 1f;
-    public float maxY = 5f;
-    public float scaleIncreaseSpeed = 2f;
-    public float scaleDecaySpeed = 1f;
-
-    [Header("Scale Mode Signal")]
-    public bool scaleWithConfidence = true;
-    public bool scaleWithAlpha = false;
-    public bool scaleWithBeta = false;
-    public bool scaleWithGamma = false;
-    public float scaleSignalMultiplier = 1f;
+    [Header("Events")]
+    public UnityEvent onLeftChosen;
+    public UnityEvent onRightChosen;
+    public UnityEvent onIdleChosen;
+    public UnityEvent onToggle;
 
     private Socket socket;
     private Thread thread;
     private volatile bool running = false;
 
     private readonly object dataLock = new object();
+    private readonly List<BrainDirection> voteBuffer = new List<BrainDirection>();
 
-    private float targetDirection = 0f;
-    private float smoothedDirection = 0f;
-
-    private float currentYScale = 1f;
+    private float voteTimer = 0f;
 
     void Start()
     {
-        currentYScale = transform.localScale.y;
-
         socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         socket.Bind(new IPEndPoint(IPAddress.Any, port));
 
@@ -79,7 +69,7 @@ public class BrainCubeModeController : MonoBehaviour
         thread.IsBackground = true;
         thread.Start();
 
-        Debug.Log("BrainCube listening on UDP port " + port);
+        Debug.Log("BrainInputController listening on UDP port " + port);
     }
 
     void ReceiveLoop()
@@ -107,11 +97,15 @@ public class BrainCubeModeController : MonoBehaviour
 
     void HandleMessage(string msg)
     {
-        Debug.Log("Received UDP: " + msg);
-
         if (msg == "TOGGLE")
         {
-            ToggleMode();
+            // UnityEvents should be invoked on main thread,
+            // so we store the toggle as a special vote-like action.
+            latestRawDirection = BrainDirection.None;
+            voteBuffer.Add(BrainDirection.None);
+
+            // Mark toggle by setting a flag through main-thread-safe call pattern
+            toggleRequested = true;
             return;
         }
 
@@ -124,7 +118,17 @@ public class BrainCubeModeController : MonoBehaviour
                 string value = part.Substring(5);
 
                 if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out float dir))
-                    targetDirection = Mathf.Clamp(dir, -1f, 1f);
+                {
+                    BrainDirection parsedDirection = BrainDirection.None;
+
+                    if (dir < 0f)
+                        parsedDirection = BrainDirection.Left;
+                    else if (dir > 0f)
+                        parsedDirection = BrainDirection.Right;
+
+                    latestRawDirection = parsedDirection;
+                    voteBuffer.Add(parsedDirection);
+                }
             }
             else if (part.StartsWith("CONF:"))
             {
@@ -157,32 +161,25 @@ public class BrainCubeModeController : MonoBehaviour
         }
     }
 
-    void ToggleMode()
-    {
-        if (currentMode == BrainMode.MoveLeftRight)
-        {
-            currentMode = BrainMode.ScaleY;
-            targetDirection = 0f;
-            Debug.Log("Mode switched to: Scale Y");
-        }
-        else
-        {
-            currentMode = BrainMode.MoveLeftRight;
-            Debug.Log("Mode switched to: Move Left/Right");
-        }
-    }
+    private bool toggleRequested = false;
 
     void Update()
     {
         SmoothBrainValues();
 
-        if (currentMode == BrainMode.MoveLeftRight)
+        if (toggleRequested)
         {
-            UpdateMovementMode();
+            toggleRequested = false;
+            onToggle?.Invoke();
+            Debug.Log("Brain toggle event fired.");
         }
-        else
+
+        voteTimer += Time.deltaTime;
+
+        if (voteTimer >= voteWindowSeconds)
         {
-            UpdateScaleMode();
+            voteTimer = 0f;
+            ChooseMajorityDirection();
         }
     }
 
@@ -213,54 +210,79 @@ public class BrainCubeModeController : MonoBehaviour
         );
     }
 
-    void UpdateMovementMode()
+    void ChooseMajorityDirection()
     {
-        smoothedDirection = Mathf.Lerp(
-            smoothedDirection,
-            targetDirection,
-            Time.deltaTime * moveSmoothSpeed
-        );
+        List<BrainDirection> votesCopy;
 
-        Vector3 pos = transform.position;
-        pos.x += smoothedDirection * moveSpeed * Time.deltaTime;
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        transform.position = pos;
+        lock (dataLock)
+        {
+            votesCopy = new List<BrainDirection>(voteBuffer);
+            voteBuffer.Clear();
+        }
 
-        currentYScale = Mathf.Lerp(currentYScale, 1f, Time.deltaTime * scaleDecaySpeed);
-        transform.localScale = new Vector3(1f, currentYScale, 1f);
-    }
+        leftVotes = 0;
+        rightVotes = 0;
+        idleVotes = 0;
 
-    void UpdateScaleMode()
-    {
-        smoothedDirection = Mathf.Lerp(smoothedDirection, 0f, Time.deltaTime * moveSmoothSpeed);
+        foreach (BrainDirection vote in votesCopy)
+        {
+            if (vote == BrainDirection.Left)
+                leftVotes++;
+            else if (vote == BrainDirection.Right)
+                rightVotes++;
+            else
+                idleVotes++;
+        }
 
-        float signal = GetSelectedScaleSignal();
-        float boost = Mathf.Max(0f, signal * scaleSignalMultiplier);
+        BrainDirection chosen = BrainDirection.None;
 
-        currentYScale += scaleIncreaseSpeed * boost * Time.deltaTime;
-        currentYScale = Mathf.Clamp(currentYScale, minY, maxY);
+        if (leftVotes > rightVotes)
+        {
+            chosen = BrainDirection.Left;
+        }
+        else if (rightVotes > leftVotes)
+        {
+            chosen = BrainDirection.Right;
+        }
+        else if (!ignoreIdleVotes && idleVotes > leftVotes && idleVotes > rightVotes)
+        {
+            chosen = BrainDirection.None;
+        }
+        else
+        {
+            chosen = BrainDirection.None;
+        }
 
-        transform.localScale = new Vector3(1f, currentYScale, 1f);
-    }
+        lastChosenDirection = chosen;
 
-    float GetSelectedScaleSignal()
-    {
-        if (scaleWithAlpha)
-            return smoothedAlpha;
-
-        if (scaleWithBeta)
-            return smoothedBeta;
-
-        if (scaleWithGamma)
-            return smoothedGamma;
-
-        if (scaleWithConfidence)
-            return smoothedConfidence;
-
-        return smoothedConfidence;
+        if (chosen == BrainDirection.Left)
+        {
+            Debug.Log($"Majority vote: LEFT | L={leftVotes}, R={rightVotes}, Idle={idleVotes}");
+            onLeftChosen?.Invoke();
+        }
+        else if (chosen == BrainDirection.Right)
+        {
+            Debug.Log($"Majority vote: RIGHT | L={leftVotes}, R={rightVotes}, Idle={idleVotes}");
+            onRightChosen?.Invoke();
+        }
+        else
+        {
+            Debug.Log($"Majority vote: IDLE/TIE | L={leftVotes}, R={rightVotes}, Idle={idleVotes}");
+            onIdleChosen?.Invoke();
+        }
     }
 
     void OnDestroy()
+    {
+        StopReceiver();
+    }
+
+    void OnApplicationQuit()
+    {
+        StopReceiver();
+    }
+
+    void StopReceiver()
     {
         running = false;
 
@@ -272,12 +294,5 @@ public class BrainCubeModeController : MonoBehaviour
                 thread.Join(200);
         }
         catch { }
-    }
-
-    void OnApplicationQuit()
-    {
-        running = false;
-
-        try { socket?.Close(); } catch { }
     }
 }

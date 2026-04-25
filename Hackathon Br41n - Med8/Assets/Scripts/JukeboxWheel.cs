@@ -7,6 +7,13 @@ public class JukeboxWheel : MonoBehaviour
     public float cdHeight = 0f;
     public float selectedHeightOffset = 0.5f;
 
+    [Header("Transparency")]
+    public float selectedAlpha = 1f;
+    public float unselectedAlpha = 0.4f;
+
+    private Renderer[] renderers;
+    private float[] alphaVelocities;
+
     [Header("Selected CD Effects")]
     public float selectedScale = 1.15f;
     public float selectedForwardPush = 0.25f;
@@ -53,6 +60,7 @@ public class JukeboxWheel : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, smoothedY, 0f);
 
+        AnimateTransparency();
         UpdateSelectedCD();
         AnimateCDs();
     }
@@ -78,11 +86,16 @@ public class JukeboxWheel : MonoBehaviour
         baseScales = new Vector3[count];
         positionVelocities = new Vector3[count];
         scaleVelocities = new Vector3[count];
+        renderers = new Renderer[count];
+        alphaVelocities = new float[count];
 
         for (int i = 0; i < count; i++)
         {
             cds[i] = transform.GetChild(i);
+
             baseScales[i] = cds[i].localScale;
+
+            renderers[i] = cds[i].GetComponentInChildren<Renderer>();
         }
     }
 
@@ -164,6 +177,32 @@ public class JukeboxWheel : MonoBehaviour
     private int Mod(int value, int length)
     {
         return ((value % length) + length) % length;
+    }
+
+    private void AnimateTransparency()
+    {
+        for (int i = 0; i < cds.Length; i++)
+        {
+            if (renderers[i] == null) continue;
+
+            float targetAlpha = (i == selectedIndex) ? selectedAlpha : unselectedAlpha;
+
+            Material mat = renderers[i].material;
+            Color color = mat.color;
+
+            // Slower, more noticeable easing
+            float smoothTime = effectSmoothTime * 1.5f;
+
+            float newAlpha = Mathf.SmoothDamp(
+                color.a,
+                targetAlpha,
+                ref alphaVelocities[i],
+                smoothTime
+            );
+
+            color.a = newAlpha;
+            mat.color = color;
+        }
     }
 
     void OnValidate()
