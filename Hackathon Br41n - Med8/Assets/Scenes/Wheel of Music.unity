@@ -1701,6 +1701,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &1543943730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,6 +1827,9 @@ Transform:
   m_PrefabInstance: {fileID: 1594633346}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673764486
+=======
+--- !u!1 &1270008631
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1833,23 +1837,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1673764490}
   - component: {fileID: 1673764489}
   - component: {fileID: 1673764488}
   - component: {fileID: 1673764487}
   m_Layer: 5
   m_Name: Canvas
+=======
+  - component: {fileID: 1270008632}
+  - component: {fileID: 1270008634}
+  - component: {fileID: 1270008633}
+  m_Layer: 0
+  m_Name: TDScriptObject
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!114 &1673764487
 MonoBehaviour:
+=======
+--- !u!4 &1270008632
+Transform:
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1673764486}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2028,11 +2046,24 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1927815928
+=======
+  m_GameObject: {fileID: 1270008631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1270008633
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1927815926}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2229,11 +2260,25 @@ RectTransform:
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1975986873
+=======
+  m_GameObject: {fileID: 1270008631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1142094999}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend
+--- !u!114 &1270008634
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1975986871}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2689,12 +2734,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+=======
+  m_GameObject: {fileID: 1270008631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1142094999}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 119422581}
   - {fileID: 330401497}
+<<<<<<< HEAD
   - {fileID: 824492810}
   - {fileID: 1673764490}
   - {fileID: 1461327450}
+=======
+  - {fileID: 1142095001}
+  - {fileID: 1270008632}
+>>>>>>> 7d41bd991ddcf9b5b1bd9fd442d42707e06c3a89
