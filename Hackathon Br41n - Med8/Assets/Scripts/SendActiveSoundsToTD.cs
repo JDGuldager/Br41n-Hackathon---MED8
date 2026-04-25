@@ -1,17 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using OscJack;
-using System.Collections.Generic;
 
 public class SendActiveSoundsToTD : MonoBehaviour
 {
-    [Header("OSC")]
-    [SerializeField] private string host = "127.0.0.1";
-    [SerializeField] private int port = 9000;
-    [SerializeField] private string oscAddress = "/sounds/active";
-    [SerializeField] private float sendInterval = 0.1f;
+    [Header("References")]
+    public CDSelectionManager selectionManager;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource[] soundSources = new AudioSource[20];
+    [Header("OSC")]
+    public string host = "127.0.0.1";
+    public int port = 9000;
+    public string oscAddress = "/sound/active";
+    public float sendInterval = 0.1f;
+
+    [Header("CD Order")]
+    public List<string> allCDNames = new List<string>(20);
 
     private OscClient client;
     private int[] lastSent = { -999, -999, -999, -999 };
@@ -24,26 +27,29 @@ public class SendActiveSoundsToTD : MonoBehaviour
 
     void CheckAndSend()
     {
-        List<int> activeIndices = new List<int>(4);
+        if (selectionManager == null) return;
 
-        for (int i = 0; i < soundSources.Length; i++)
+        List<int> activeIds = new List<int>();
+
+        foreach (string cdName in selectionManager.selectedCDs)
         {
-            if (soundSources[i] != null && soundSources[i].isPlaying)
-            {
-                activeIndices.Add(i);
-
-                if (activeIndices.Count == 4)
-                    break;
-            }
+            int id = allCDNames.IndexOf(cdName);
+            if (id >= 0)
+                activeIds.Add(id);
+            else
+                Debug.LogWarning("CD name not found in allCDNames: " + cdName);
         }
 
-        while (activeIndices.Count < 4)
-            activeIndices.Add(-1);
+        while (activeIds.Count < 4)
+            activeIds.Add(-1);
+
+        if (activeIds.Count > 4)
+            activeIds = activeIds.GetRange(0, 4);
 
         bool changed = false;
         for (int i = 0; i < 4; i++)
         {
-            if (activeIndices[i] != lastSent[i])
+            if (activeIds[i] != lastSent[i])
             {
                 changed = true;
                 break;
@@ -52,16 +58,12 @@ public class SendActiveSoundsToTD : MonoBehaviour
 
         if (changed)
         {
-            client.Send(
-                oscAddress,
-                activeIndices[0],
-                activeIndices[1],
-                activeIndices[2],
-                activeIndices[3]
-            );
+            client.Send(oscAddress, activeIds[0], activeIds[1], activeIds[2], activeIds[3]);
 
             for (int i = 0; i < 4; i++)
-                lastSent[i] = activeIndices[i];
+                lastSent[i] = activeIds[i];
+
+            Debug.Log($"Sent CDs: {activeIds[0]}, {activeIds[1]}, {activeIds[2]}, {activeIds[3]}");
         }
     }
 
