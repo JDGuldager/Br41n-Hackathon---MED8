@@ -23,6 +23,10 @@ public class BrainCubeModeController : MonoBehaviour
     public float moveSpeed = 3f;
     public float moveSmoothSpeed = 6f;
 
+    [Header("Movement Limits")]
+    public float minX = -5f;
+    public float maxX = 5f;
+
     [Header("Y Scaling")]
     public float minY = 1f;
     public float maxY = 5f;
@@ -81,6 +85,7 @@ public class BrainCubeModeController : MonoBehaviour
     void HandleMessage(string msg)
     {
         Debug.Log("Received UDP: " + msg);
+
         if (msg == "TOGGLE")
         {
             ToggleMode();
@@ -131,7 +136,10 @@ public class BrainCubeModeController : MonoBehaviour
             Time.deltaTime * moveSmoothSpeed
         );
 
-        transform.position += Vector3.right * smoothedDirection * moveSpeed * Time.deltaTime;
+        Vector3 pos = transform.position;
+        pos.x += smoothedDirection * moveSpeed * Time.deltaTime;
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        transform.position = pos;
 
         // Slowly return scale to normal while moving
         currentYScale = Mathf.Lerp(currentYScale, 1f, Time.deltaTime * scaleDecaySpeed);

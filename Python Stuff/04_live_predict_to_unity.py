@@ -15,16 +15,18 @@ WINDOW_SECONDS = 2.0
 STEP_SECONDS = 0.25
 CONFIDENCE_THRESHOLD = 0.60
 
-# Jaw squeeze settings
-JAW_WINDOW_SECONDS = 0.25
-JAW_BASELINE_SECONDS = 3.0
-JAW_THRESHOLD_MULTIPLIER = 6.0
-JAW_COOLDOWN_SECONDS = 1.2
+# Jaw squeeze toggle settings
+JAW_WINDOW_SECONDS = 0.20
+JAW_BASELINE_SECONDS = 5.0
+JAW_THRESHOLD_MULTIPLIER = 8.0
+JAW_COOLDOWN_SECONDS = 1.0
+
 
 def bandpass_window(x, fs, lowcut, highcut):
     nyq = fs / 2.0
     b, a = butter(4, [lowcut / nyq, highcut / nyq], btype="bandpass")
     return filtfilt(b, a, x, axis=-1)
+
 
 def get_lsl_inlet():
     print("Looking for Unicorn Data LSL stream...")
@@ -42,13 +44,19 @@ def get_lsl_inlet():
 
     return inlet
 
+
 def send_udp(udp, msg):
     udp.sendto(msg.encode("ascii"), (UNITY_IP, UNITY_PORT))
+
 
 def compute_jaw_score(buffer, jaw_samples):
     recent = buffer[:, -jaw_samples:]
     diff = np.diff(recent, axis=1)
+
+    # Jaw/face EMG creates sharp broadband changes.
+    # Mean absolute sample-to-sample change is a simple artifact detector.
     return float(np.mean(np.abs(diff)))
+
 
 def main():
     payload = joblib.load(MODEL_FILE)
@@ -72,6 +80,7 @@ def main():
 
     jaw_baseline_scores = []
     jaw_baseline = None
+    jaw_mad = None
     last_jaw_toggle_time = 0.0
 
     print("Live prediction started.")
@@ -81,7 +90,9 @@ def main():
     print("MOVE:1  = right")
     print("TOGGLE  = switch mode")
     print()
-    print("Stay relaxed for the first few seconds for jaw baseline...")
+    print("Stay relaxed for the first few seconds for jaw baseline.")
+    print("Do NOT squeeze your jaw during baseline calibration.")
+    print()
 
     while True:
         sample, timestamp = inlet.pull_sample(timeout=1.0)
@@ -110,21 +121,46 @@ def main():
         if jaw_baseline is None:
             jaw_baseline_scores.append(jaw_score)
 
-            print(f"Calibrating jaw baseline... {len(jaw_baseline_scores)}/{jaw_baseline_samples_needed}")
+            print(
+                f"Calibrating jaw baseline... "
+                f"{len(jaw_baseline_scores)}/{jaw_baseline_samples_needed}"
+            )
 
             if len(jaw_baseline_scores) >= jaw_baseline_samples_needed:
-                jaw_baseline = float(np.median(jaw_baseline_scores))
-                print(f"Jaw baseline ready: {jaw_baseline:.6f}")
+                baseline_array = np.array(jaw_baseline_scores)
+
+                jaw_baseline = float(np.median(baseline_array))
+                jaw_mad = float(np.median(np.abs(baseline_array - jaw_baseline)))
+
+                # Avoid zero or near-zero MAD
+                if jaw_mad < 1e-9:
+                    jaw_mad = max(jaw_baseline * 0.1, 1e-9)
+
+                print()
+                print(
+                    f"Jaw baseline ready: "
+                    f"baseline={jaw_baseline:.6f}, MAD={jaw_mad:.6f}"
+                )
+                print(
+                    f"Jaw threshold = "
+                    f"{jaw_baseline + JAW_THRESHOLD_MULTIPLIER * jaw_mad:.6f}"
+                )
+                print()
 
             continue
 
         now = time.time()
-        jaw_threshold = jaw_baseline * JAW_THRESHOLD_MULTIPLIER
+        jaw_threshold = jaw_baseline + JAW_THRESHOLD_MULTIPLIER * jaw_mad
 
         if jaw_score > jaw_threshold and now - last_jaw_toggle_time > JAW_COOLDOWN_SECONDS:
             send_udp(udp, "TOGGLE")
             last_jaw_toggle_time = now
-            print(f"JAW TOGGLE detected | score={jaw_score:.6f}, threshold={jaw_threshold:.6f}")
+
+            print(
+                f"JAW TOGGLE detected | "
+                f"score={jaw_score:.6f}, threshold={jaw_threshold:.6f}"
+            )
+
             continue
 
         # -------------------------
@@ -145,12 +181,14 @@ def main():
         send_udp(udp, f"MOVE:{cmd}")
 
         label = "LEFT" if pred == 0 else "RIGHT"
+
         print(
             f"pred={label}, conf={conf:.2f}, cmd={cmd}, "
             f"jaw={jaw_score:.6f}/{jaw_threshold:.6f}"
         )
 
         time.sleep(0.001)
+
 
 if __name__ == "__main__":
     main()
