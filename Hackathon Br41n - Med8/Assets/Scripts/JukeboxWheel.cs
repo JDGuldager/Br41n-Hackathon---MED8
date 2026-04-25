@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class JukeboxWheel : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class JukeboxWheel : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, smoothedY, 0f);
 
+        HandleInput();
         UpdateSelectedCD();
         AnimateCDs();
         AnimateTransparency();
@@ -256,6 +258,25 @@ public class JukeboxWheel : MonoBehaviour
         {
             CollectChildren();
             ArrangeCDs();
+        }
+    }
+    private void HandleInput()
+    {
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
+        {
+            RotateLeft();
+        }
+
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        {
+            RotateRight();
+        }
+
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+        {
+            SelectCurrentCD();
         }
     }
 }
