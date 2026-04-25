@@ -7,12 +7,12 @@ public class JukeboxWheel : MonoBehaviour
     public float cdHeight = 0f;
     public float selectedHeightOffset = 0.5f;
 
+    [Header("Selection Manager")]
+    public CDSelectionManager selectionManager;
+
     [Header("Transparency")]
     public float selectedAlpha = 1f;
     public float unselectedAlpha = 0.4f;
-
-    private Renderer[] renderers;
-    private float[] alphaVelocities;
 
     [Header("Selected CD Effects")]
     public float selectedScale = 1.15f;
@@ -34,6 +34,9 @@ public class JukeboxWheel : MonoBehaviour
     private Vector3[] positionVelocities;
     private Vector3[] scaleVelocities;
 
+    private Renderer[][] renderers;
+    private float[] alphaVelocities;
+
     private float targetYRotation;
     private float rotationVelocity;
     private int selectedIndex = 0;
@@ -49,10 +52,8 @@ public class JukeboxWheel : MonoBehaviour
     {
         if (cds == null || cds.Length == 0) return;
 
-        float currentY = transform.eulerAngles.y;
-
         float smoothedY = Mathf.SmoothDampAngle(
-            currentY,
+            transform.eulerAngles.y,
             targetYRotation,
             ref rotationVelocity,
             rotationSmoothTime
@@ -60,9 +61,9 @@ public class JukeboxWheel : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, smoothedY, 0f);
 
-        AnimateTransparency();
         UpdateSelectedCD();
         AnimateCDs();
+        AnimateTransparency();
     }
 
     public void RotateLeft()
@@ -77,6 +78,12 @@ public class JukeboxWheel : MonoBehaviour
         targetYRotation -= 360f / cds.Length;
     }
 
+    public Transform GetSelectedCD()
+    {
+        if (cds == null || cds.Length == 0) return null;
+        return cds[selectedIndex];
+    }
+
     private void CollectChildren()
     {
         int count = transform.childCount;
@@ -86,16 +93,16 @@ public class JukeboxWheel : MonoBehaviour
         baseScales = new Vector3[count];
         positionVelocities = new Vector3[count];
         scaleVelocities = new Vector3[count];
-        renderers = new Renderer[count];
+
+        renderers = new Renderer[count][];
         alphaVelocities = new float[count];
 
         for (int i = 0; i < count; i++)
         {
             cds[i] = transform.GetChild(i);
-
             baseScales[i] = cds[i].localScale;
 
-            renderers[i] = cds[i].GetComponentInChildren<Renderer>();
+            renderers[i] = cds[i].GetComponentsInChildren<Renderer>();
         }
     }
 
@@ -149,11 +156,13 @@ public class JukeboxWheel : MonoBehaviour
             {
                 targetPos.y = cdHeight + selectedHeightOffset;
 
-                Vector3 pushDirection = transform.InverseTransformDirection(
-                    Camera.main.transform.forward
-                );
+                if (Camera.main != null)
+                {
+                    Vector3 pushDirection =
+                        transform.InverseTransformDirection(Camera.main.transform.forward);
 
-                targetPos += pushDirection.normalized * selectedForwardPush;
+                    targetPos += pushDirection.normalized * selectedForwardPush;
+                }
 
                 targetScale = baseScales[i] * selectedScale;
             }
@@ -174,35 +183,41 @@ public class JukeboxWheel : MonoBehaviour
         }
     }
 
-    private int Mod(int value, int length)
-    {
-        return ((value % length) + length) % length;
-    }
-
     private void AnimateTransparency()
     {
         for (int i = 0; i < cds.Length; i++)
         {
-            if (renderers[i] == null) continue;
+            bool isFocused = i == selectedIndex;
+            bool isChosen = selectionManager != null && selectionManager.IsSelected(cds[i]);
 
-            float targetAlpha = (i == selectedIndex) ? selectedAlpha : unselectedAlpha;
+            float targetAlpha = (isFocused || isChosen)
+                ? selectedAlpha
+                : unselectedAlpha;
 
-            Material mat = renderers[i].material;
-            Color color = mat.color;
+            foreach (Renderer rend in renderers[i])
+            {
+                if (rend == null) continue;
 
-            // Slower, more noticeable easing
-            float smoothTime = effectSmoothTime * 1.5f;
+                foreach (Material mat in rend.materials)
+                {
+                    Color color = mat.color;
 
-            float newAlpha = Mathf.SmoothDamp(
-                color.a,
-                targetAlpha,
-                ref alphaVelocities[i],
-                smoothTime
-            );
+                    color.a = Mathf.SmoothDamp(
+                        color.a,
+                        targetAlpha,
+                        ref alphaVelocities[i],
+                        effectSmoothTime
+                    );
 
-            color.a = newAlpha;
-            mat.color = color;
+                    mat.color = color;
+                }
+            }
         }
+    }
+
+    private int Mod(int value, int length)
+    {
+        return ((value % length) + length) % length;
     }
 
     void OnValidate()
