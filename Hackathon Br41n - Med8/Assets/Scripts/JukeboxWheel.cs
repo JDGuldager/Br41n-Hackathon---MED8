@@ -39,13 +39,26 @@ public class JukeboxWheel : MonoBehaviour
 
     private float targetYRotation;
     private float rotationVelocity;
+
     private int selectedIndex = 0;
+    private int previousSelectedIndex = -1;
 
     void Awake()
     {
         CollectChildren();
         ArrangeCDs();
+
+        if (selectionManager != null)
+        {
+            selectionManager.RegisterCDs(cds);
+        }
+
         targetYRotation = transform.eulerAngles.y;
+
+        if (selectionManager != null && cds.Length > 0)
+        {
+            selectionManager.SetHoveredCD(cds[selectedIndex]);
+        }
     }
 
     void Update()
@@ -78,6 +91,14 @@ public class JukeboxWheel : MonoBehaviour
         targetYRotation -= 360f / cds.Length;
     }
 
+    public void SelectCurrentCD()
+    {
+        if (selectionManager == null) return;
+
+        Transform cd = GetSelectedCD();
+        selectionManager.ToggleCD(cd);
+    }
+
     public Transform GetSelectedCD()
     {
         if (cds == null || cds.Length == 0) return null;
@@ -101,7 +122,6 @@ public class JukeboxWheel : MonoBehaviour
         {
             cds[i] = transform.GetChild(i);
             baseScales[i] = cds[i].localScale;
-
             renderers[i] = cds[i].GetComponentsInChildren<Renderer>();
         }
     }
@@ -143,6 +163,16 @@ public class JukeboxWheel : MonoBehaviour
         int closestIndex = Mathf.RoundToInt(targetAngle / angleStep);
 
         selectedIndex = Mod(closestIndex, cds.Length);
+
+        if (selectedIndex != previousSelectedIndex)
+        {
+            previousSelectedIndex = selectedIndex;
+
+            if (selectionManager != null)
+            {
+                selectionManager.SetHoveredCD(cds[selectedIndex]);
+            }
+        }
     }
 
     private void AnimateCDs()
