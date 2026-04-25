@@ -119,10 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &22339489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22339490}
+  - component: {fileID: 22339492}
+  - component: {fileID: 22339491}
+  m_Layer: 0
+  m_Name: GameObject (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22339490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22339489}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22339491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22339489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1640664671}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &22339492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22339489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1640664671}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &26846098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 163192847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &66150518 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 993791477}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &77640446 stripped
 Transform:
@@ -186,6 +257,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &163016677 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 237178745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &163192847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +319,77 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &172783955 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1033113199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &184221279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184221280}
+  - component: {fileID: 184221282}
+  - component: {fileID: 184221281}
+  m_Layer: 0
+  m_Name: GameObject (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &184221280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184221279}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &184221281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184221279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 2131219554}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &184221282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184221279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 2131219554}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &208459197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -362,11 +509,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &264839659 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 442944656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &285308593 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1710680970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &321231342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 237178745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &388171362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388171363}
+  - component: {fileID: 388171365}
+  - component: {fileID: 388171364}
+  m_Layer: 0
+  m_Name: GameObject (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388171363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171362}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388171364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 785594237}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &388171365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 785594237}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &400763174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -486,6 +709,77 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &444759262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444759263}
+  - component: {fileID: 444759265}
+  - component: {fileID: 444759264}
+  m_Layer: 0
+  m_Name: GameObject (23)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444759263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444759262}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444759264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444759262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 833770228}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &444759265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444759262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 833770228}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &468817650 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 882818963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &513259276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -714,6 +1008,193 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &646041047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646041048}
+  - component: {fileID: 646041050}
+  - component: {fileID: 646041049}
+  m_Layer: 0
+  m_Name: GameObject (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &646041048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646041047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646041049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646041047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1720544671}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &646041050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646041047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1720544671}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!1 &646298395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646298396}
+  m_Layer: 0
+  m_Name: GameObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &646298396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646298395}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1252459320}
+  - {fileID: 864149898}
+  - {fileID: 669111887}
+  - {fileID: 1129761580}
+  - {fileID: 1573961472}
+  - {fileID: 388171363}
+  - {fileID: 1218809546}
+  - {fileID: 2074912393}
+  - {fileID: 1545786235}
+  - {fileID: 752771304}
+  - {fileID: 697521450}
+  - {fileID: 22339490}
+  - {fileID: 1046071981}
+  - {fileID: 1661782165}
+  - {fileID: 646041048}
+  - {fileID: 858886247}
+  - {fileID: 184221280}
+  - {fileID: 1426200923}
+  - {fileID: 806663722}
+  - {fileID: 1943623020}
+  - {fileID: 2058662512}
+  - {fileID: 1902285372}
+  - {fileID: 1116746715}
+  - {fileID: 444759263}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &669111886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669111887}
+  - component: {fileID: 669111889}
+  - component: {fileID: 669111888}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &669111887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669111886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669111888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669111886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1743042108}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TDsend2
+--- !u!114 &669111889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669111886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend2
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1743042108}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &680229547
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +1327,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 882818963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &697521449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697521450}
+  - component: {fileID: 697521452}
+  - component: {fileID: 697521451}
+  m_Layer: 0
+  m_Name: GameObject (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697521450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697521449}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697521451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697521449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 264839659}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &697521452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697521449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 264839659}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &718396371
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +1532,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718396371}
   m_CullTransparentMesh: 1
+--- !u!23 &751204632 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1596441216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &752771303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752771304}
+  - component: {fileID: 752771306}
+  - component: {fileID: 752771305}
+  m_Layer: 0
+  m_Name: GameObject (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752771304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752771303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752771305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752771303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1757137836}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &752771306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752771303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1757137836}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &760241422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -1047,6 +1665,148 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &785594237 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 2054902322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &806663721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806663722}
+  - component: {fileID: 806663724}
+  - component: {fileID: 806663723}
+  m_Layer: 0
+  m_Name: GameObject (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806663722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806663721}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806663723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806663721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 172783955}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &806663724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806663721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 172783955}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &833770228 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 549840879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &858886246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858886247}
+  - component: {fileID: 858886249}
+  - component: {fileID: 858886248}
+  m_Layer: 0
+  m_Name: GameObject (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &858886247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858886246}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &858886248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858886246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1947942494}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &858886249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858886246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1947942494}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &862310564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1940,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862310564}
   m_CullTransparentMesh: 1
+--- !u!1 &864149895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864149898}
+  - component: {fileID: 864149897}
+  - component: {fileID: 864149896}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &864149896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864149895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 751204632}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &864149897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864149895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 751204632}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!4 &864149898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864149895}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869735352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +2338,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 1312433595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046071980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046071981}
+  - component: {fileID: 1046071983}
+  - component: {fileID: 1046071982}
+  m_Layer: 0
+  m_Name: GameObject (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1046071981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046071980}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1046071982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046071980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1826232212}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1046071983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046071980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1826232212}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1001 &1053730784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1626,11 +2518,209 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &1116746714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116746715}
+  - component: {fileID: 1116746717}
+  - component: {fileID: 1116746716}
+  m_Layer: 0
+  m_Name: GameObject (22)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116746715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116746714}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116746716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116746714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1908161151}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1116746717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116746714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1908161151}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &1121266692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 83567403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1129761579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129761580}
+  - component: {fileID: 1129761582}
+  - component: {fileID: 1129761581}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129761580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129761579}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129761581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129761579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 2098069763}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1129761582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129761579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 2098069763}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!1 &1218809545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218809546}
+  - component: {fileID: 1218809548}
+  - component: {fileID: 1218809547}
+  m_Layer: 0
+  m_Name: GameObject (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218809546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218809545}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1218809547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218809545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 468817650}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1218809548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218809545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 468817650}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!4 &1228055656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -1646,6 +2736,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 993791477}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1252459317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252459320}
+  - component: {fileID: 1252459319}
+  - component: {fileID: 1252459318}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252459318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252459317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 751204632}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend
+--- !u!114 &1252459319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252459317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1679485802}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!4 &1252459320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252459317}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1254980629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -1868,6 +3024,77 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &1426200922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426200923}
+  - component: {fileID: 1426200925}
+  - component: {fileID: 1426200924}
+  m_Layer: 0
+  m_Name: GameObject (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426200923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426200922}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1426200924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426200922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 285308593}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1426200925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426200922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 285308593}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &1489723706 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 405860937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1502103011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,6 +3254,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 1596441216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1545786234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545786235}
+  - component: {fileID: 1545786237}
+  - component: {fileID: 1545786236}
+  m_Layer: 0
+  m_Name: GameObject (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545786235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545786234}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545786236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545786234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 66150518}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1545786237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545786234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 66150518}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1001 &1557857747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2084,6 +3377,72 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &1573961471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573961472}
+  - component: {fileID: 1573961474}
+  - component: {fileID: 1573961473}
+  m_Layer: 0
+  m_Name: GameObject (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573961472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573961471}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573961473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573961471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1983273777}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1573961474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573961471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1983273777}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1001 &1596441216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2141,11 +3500,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &1640509926 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 163192847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1640664671 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 513259276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1653467255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 2054902322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1661782164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661782165}
+  - component: {fileID: 1661782167}
+  - component: {fileID: 1661782166}
+  m_Layer: 0
+  m_Name: GameObject (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1661782165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661782164}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1661782166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661782164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 163016677}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1661782167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661782164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 163016677}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1001 &1672552602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +3629,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9779ae8fa5b1b4863b712f47aaf9e57d, type: 2}
     - target: {fileID: 5552181162069044290, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
       propertyPath: m_Name
       value: CD Prefab Parent
@@ -2203,6 +3642,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &1679485802 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1672552602}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1710680970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2260,6 +3704,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!23 &1720544671 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1557857747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1729104734 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 580706426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1743042108 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 2146301325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1757137836 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 212353122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1761281243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -2412,6 +3876,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 1672552602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1826232212 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1402767341}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1837690487
 GameObject:
@@ -2572,6 +4041,158 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
   m_PrefabInstance: {fileID: 1033113199}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1902285371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902285372}
+  - component: {fileID: 1902285374}
+  - component: {fileID: 1902285373}
+  m_Layer: 0
+  m_Name: GameObject (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902285372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902285371}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902285373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902285371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1640509926}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1902285374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902285371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1640509926}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &1908161151 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1312433595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1933137738 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 761888935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1943623019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943623020}
+  - component: {fileID: 1943623022}
+  - component: {fileID: 1943623021}
+  m_Layer: 0
+  m_Name: GameObject (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1943623020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943623019}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943623021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943623019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1729104734}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &1943623022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943623019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1729104734}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &1947942494 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1101110526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1983273777 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 569621293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2054902322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2629,6 +4250,148 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+--- !u!1 &2058662511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058662512}
+  - component: {fileID: 2058662514}
+  - component: {fileID: 2058662513}
+  m_Layer: 0
+  m_Name: GameObject (20)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058662512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058662511}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058662513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058662511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1933137738}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &2058662514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058662511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1933137738}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!1 &2074912392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074912393}
+  - component: {fileID: 2074912395}
+  - component: {fileID: 2074912394}
+  m_Layer: 0
+  m_Name: GameObject (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2074912393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074912392}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646298396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2074912394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074912392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79770b2944d4cdeb52083e0a22da31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Syphon.Runtime::Klak.Syphon.SyphonClient
+  <TargetTexture>k__BackingField: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  <TargetRenderer>k__BackingField: {fileID: 1489723706}
+  <TargetMaterialProperty>k__BackingField: _BaseMap
+  _serverName: TouchDesigner/TDsend1
+--- !u!114 &2074912395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074912392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f7dec0b00674947bc631624c21970a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutReceiver
+  _sourceName: TDsend1
+  _targetTexture: {fileID: 8400000, guid: c148eb17421554b75a4b926a37668c37, type: 2}
+  _targetRenderer: {fileID: 1489723706}
+  _targetMaterialProperty: _BaseMap
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
+--- !u!23 &2098069763 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 1053730784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2131219554 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4841190677669237331, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
+  m_PrefabInstance: {fileID: 83567403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2133777386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 749561655223416832, guid: 27a48f796d005d548abcecd55adb85ee, type: 3}
@@ -2700,3 +4463,4 @@ SceneRoots:
   - {fileID: 945468333}
   - {fileID: 680229550}
   - {fileID: 1377984627}
+  - {fileID: 646298396}
